@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade - 12</title>
+</head>
+<body>
+    <h1>Exercicio 12</h1>
+    <h3></h3>
+
+    <form id="formCadastro">
+         <input placeholder="Informe os alimentos" name="item" />
+
+         <button type="button" id="fruta">Fruta</button>
+         <button type="button" id="legume">Legume</button>
+    </form>
+    <button type="button" id="feira">Juntar os itens</button>
+    <button type="button" id="Mfruta">Mostrar Frutas</button>
+    <button type="button" id="Mlegume">Mostrar Legumes</button>
+
+
+    <script>
+        var lista = []
+        var legumesL = []
+        var frutaL = []
+
+        var form = document.getElementById("formCadastro")
+        form.addEventListener("click", function(e){
+            e.preventDefault() // Nao atualiza a página
+
+            var dados = new FormData(this)
+
+            // Recupera os items
+            var fruta = dados.get("item")
+            frutaL.push(fruta)
+            lista.push(fruta)
+
+            var legume = dados.get("item")
+            legumesL.push(legume)
+            lista.push(legume)
+            
+            
+        })
+        var Mlegume = document.getElementById("Mlegume")
+        Mlegume.addEventListener("click", function(i){
+            i.preventDefault()
+            console.log(legumesL)
+        })
+        var Mfruta = document.getElementById("Mfruta")
+        Mfruta.addEventListener("click", function(i){
+            i.preventDefault()
+            console.log(frutaL)
+        })
+        var feira = document.getElementById("feira")
+        feira.addEventListener("click", function(i){
+            i.preventDefault()
+            console.log(lista)
+        })
+
+    </script>
+</body>
+</html>

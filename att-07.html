@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade - 03</title>
+</head>
+<body>
+    <h1>Exercicio 3</h1>
+    <h3></h3>
+
+    <form id="formCadastro">
+         <input placeholder="Item 1" name="item" />
+
+         <button type="submit">CADASTRAR</button>
+    </form>
+    <p>Clique para ver quantos pets tem cadastrado</p>
+    <button type="button" id="pet"></button>
+
+
+    <script>
+        var lista = []
+
+        var form = document.getElementById("formCadastro")
+        form.addEventListener("submit", function(e){
+            e.preventDefault() // Nao atualiza a página
+
+            var dados = new FormData(this)
+
+            // Recupera os items
+            var item = dados.get("item")
+            lista.push(item)
+            
+            
+        })
+        var pet = document.getElementById("pet")
+        pet.addEventListener("click", function(i){
+            i.preventDefault()
+            if(lista.length > 0) {
+               console.log('Você possuí ' + lista.length + ' animais cadastrados')
+            } else{
+                console.log('Você não possuí nenhum animal!')
+            }
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade - 11</title>
+</head>
+<body>
+    <h1>Exercicio 11</h1>
+    <h3></h3>
+
+    <form id="formCadastro">
+         <input placeholder="Informe numeros" name="item" />
+
+         <button type="submit">CADASTRAR</button>
+    </form>
+    <button type="button" id="num">Inverter ordem</button>
+
+
+    <script>
+        var lista = []
+
+        var form = document.getElementById("formCadastro")
+        form.addEventListener("submit", function(e){
+            e.preventDefault() // Nao atualiza a página
+
+            var dados = new FormData(this)
+
+            // Recupera os items
+            var item = dados.get("item")
+            lista.push(item)
+            
+            
+        })
+        var num = document.getElementById("num")
+        num.addEventListener("click", function(i){
+            i.preventDefault()
+            lista.reverse()
+            console.log(lista)
+        })
+
+    </script>
+</body>
+</html>

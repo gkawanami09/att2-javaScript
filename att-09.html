@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade - 08</title>
+</head>
+<body>
+    <h1>Exercicio 8</h1>
+    <h3></h3>
+
+    <form id="formCadastro">
+         <input placeholder="Jogo favorito" name="item" />
+
+         <button type="submit">CADASTRAR</button>
+    </form>
+    <p>Clique para verificar a posição da "Uva" na lista</p>
+    <button type="button" id="uva"></button>
+
+
+    <script>
+        var lista = []
+
+        var form = document.getElementById("formCadastro")
+        form.addEventListener("submit", function(e){
+            e.preventDefault() // Nao atualiza a página
+
+            var dados = new FormData(this)
+
+            // Recupera os items
+            var item = dados.get("item")
+            lista.push(item)
+            
+            
+        })
+        var uva = document.getElementById("uva")
+        uva.addEventListener("click", function(i){
+            i.preventDefault()
+            if(lista.includes('uva')) {
+               console.log('A uva está na posição ' + lista.indexOf("uva"))
+            } else{
+                console.log('Não possuí uva na lista')
+            }
+        })
+
+    </script>
+</body>
+</html>

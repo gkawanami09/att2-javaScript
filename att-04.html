@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade - 03</title>
+</head>
+<body>
+    <h1>Exercicio 3</h1>
+    <h3></h3>
+
+    <form id="formCadastro">
+         <input placeholder="Item 1" name="item" />
+
+         <button type="submit">CADASTRAR</button>
+    </form>
+    <p>Clique no botão para fazer a ana furar a fila</p>
+    <button type="button" id="ana"></button>
+
+
+    <script>
+        var lista = []
+
+        var form = document.getElementById("formCadastro")
+        form.addEventListener("submit", function(e){
+            e.preventDefault() // Nao atualiza a página
+
+            var dados = new FormData(this)
+
+            // Recupera os items
+            var item = dados.get("item")
+            
+            lista.push(item)
+            console.log(lista)
+            
+            
+        })
+
+
+        var lanterna = document.getElementById("ana")
+        lanterna.addEventListener("click", function(i){
+            i.preventDefault()
+            lista.unshift("Ana")
+            console.log(lista)
+        })
+
+    </script>
+</body>
+</html>

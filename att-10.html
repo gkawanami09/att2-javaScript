@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade - 08</title>
+</head>
+<body>
+    <h1>Exercicio 8</h1>
+    <h3></h3>
+
+    <form id="formCadastro">
+         <input placeholder="Informe nomes" name="item" />
+
+         <button type="submit">CADASTRAR</button>
+    </form>
+    <button type="button" id="nome">Colocar em ordem</button>
+
+
+    <script>
+        var lista = []
+
+        var form = document.getElementById("formCadastro")
+        form.addEventListener("submit", function(e){
+            e.preventDefault() // Nao atualiza a página
+
+            var dados = new FormData(this)
+
+            // Recupera os items
+            var item = dados.get("item")
+            lista.push(item)
+            
+            
+        })
+        var nome = document.getElementById("nome")
+        nome.addEventListener("click", function(i){
+            i.preventDefault()
+            lista.sort()
+            console.log(lista)
+        })
+
+    </script>
+</body>
+</html>
